@@ -4,22 +4,26 @@ import styled from 'styled-components'
 const Bar = styled.div`
 
 position: absolute;
-width: 1440px;
+width: 100%;
 height: 60px;
 left: 0;
 top: 0;
-
+margin-top: -8px;
+margin-left: -8px;
 background: #242331;
+display: block;
 `
 
 const Text = styled.div`
+
 position: absolute;
-width: 352px;
+width: auto;
 height: 40px;
 left: 544px;
 top: 20px;
+margin-left: -8px;
 
-font-family: Exo;
+font-family: 'Exo';
 font-style: normal;
 font-weight: normal;
 font-size: 24px;

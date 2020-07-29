@@ -1,11 +1,22 @@
 import React from 'react'
-import Main from '../components/Main/Main'
+import styled from "styled-components";
+// import Light from '../components/Controlpanel/LightControl'
 
+
+const ServiceStyle = styled.div`
+position: absolute;
+width: 1100px;
+height: 552.97px;
+left: 170px;
+top: 333px;
+overflow-y: scroll;
+border: 1px solid #BFBEBE;
+`
 const ControlPanel = () => {
     return (
-        <div>
-            <Main />
-        </div>
+        <ServiceStyle>
+            
+        </ServiceStyle>
     )
 }
 
