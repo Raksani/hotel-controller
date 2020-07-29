@@ -16,7 +16,7 @@ right: 27.49%;
 top: 2.48%;
 bottom: 75.21%;
 
-font-family: Exo;
+font-family: Exo, sans-serif;
 font-style: normal;
 font-weight: 300;
 font-size: 20px;

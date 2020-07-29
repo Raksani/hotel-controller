@@ -19,7 +19,7 @@ top: 0%;
 bottom: 81px;
 width: 100%;
 
-font-family: Exo;
+font-family: Exo, sans-serif;
 font-style: normal;
 font-weight: 300;
 font-size: 20px;
@@ -38,7 +38,7 @@ right: 36.99%;
 top: 50.93%;
 bottom: 0%;
 
-font-family: Exo;
+font-family: Exo, sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 40px;
@@ -66,7 +66,7 @@ right: 0%;
 top: 66.67%;
 bottom: 13.89%;
 
-font-family: Exo;
+font-family: Exo, sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 16px;
