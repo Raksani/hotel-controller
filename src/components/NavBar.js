@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Bar = styled.div`
 
-position: absolute;
+position: fixed;
 width: 100%;
 height: 60px;
 left: 0;
