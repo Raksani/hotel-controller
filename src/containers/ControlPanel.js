@@ -16,7 +16,7 @@ border: 1px solid #BFBEBE;
 const ControlPanel = () => {
     return (
         <ServiceStyle>
-            {/* <ServicePane/> */}
+            <ServicePane/>
             <LoopPane/>
         </ServiceStyle>
     )
