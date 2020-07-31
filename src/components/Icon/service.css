@@ -1,0 +1,117 @@
+.pane-container {
+/* position: absolute; */
+float: left;
+left: 0%;
+right: 76.36%;
+top: 0%;
+bottom: 52.62%;
+
+background: #FFFFFF;
+box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.4);
+border-radius: 20px;
+width: 260px;
+height: 262px;
+
+margin-right: 20px;
+margin-bottom: 28px;
+}
+
+
+
+.text-container{
+  position: relative;
+  width: 180px;
+  height: 169.25px;
+  left: 40px;
+  top: 46px;  
+  /* border: solid; */
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  float: left;
+  left: 0%;
+  right: 60.59%;
+  top: 0%;
+  bottom: 45.21%;
+  width: 80px;
+  background-repeat: no-repeat;
+}
+
+#light-style.icon{
+  background-image: url("light.svg");
+  height: 68.8px;
+  
+}
+
+#air-style.icon{
+  background-image: url("air.svg");
+}
+
+#room-service-style.icon{
+  background-image: url("roomservice.svg");
+
+}
+
+#concierge-style.icon{
+  background-image: url("concierge.svg");
+}
+
+#language-style.icon {
+  background-image: url("lang.svg");
+}
+#amenity-style.icon{
+  background-image: url("amenity.svg");
+
+}
+
+#hotel-style.icon{
+  background-image: url("hotel.svg");
+
+}
+
+#room-status-style.icon {
+  background-image: url("roomstatus.svg");
+  
+}
+
+.detail {
+  position: absolute;
+  float: left;
+  left: 0%;
+  right: 0%;
+  top: 47.86%;
+  bottom: 22.6%;
+
+  font-family: Muli;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 25px;
+  /* or 179% */
+
+  color: #7d7987;
+
+  mix-blend-mode: normal;
+}
+
+.title{
+  position: absolute;
+  float: left;
+  left: 50.56%;
+  right: 2.78%;
+  top: 2.36%;
+  bottom: 68.1%;
+
+  font-family: Muli;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  /* or 104% */
+
+  color: #000000;
+
+  mix-blend-mode: normal;
+}

@@ -5,6 +5,7 @@ import styled from "styled-components";
  * -----------------------------
  */
 import services from "./pane-data";
+import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 /**
  * Our React component where we display data
@@ -21,6 +22,7 @@ background: #FFFFFF;
 /* drop shadow */
 box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.4);
 border-radius: 20px;
+
 `
 
 const TextContainer = styled.div`
@@ -83,11 +85,11 @@ function LoopPane() {
         <div key={index}>
         <PaneContainer>
         <TextContainer className="service-text-container">
-          <Icon className={service.id}>
+          <Icon>
             <h2>ICON</h2>
           </Icon>
-          <Title className={service.id}>{service.id}</Title>
-          <Detail className={service.id}>{service.detail}</Detail>
+          <Title>{service.id}</Title>
+          <Detail>{service.detail}</Detail>
           <p>{service.switch}</p>
         </TextContainer>
         </PaneContainer>

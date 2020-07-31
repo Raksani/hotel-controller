@@ -1,23 +1,22 @@
 import React from 'react'
 import styled from "styled-components";
-// import Light from '../components/Controlpanel/LightControl'
-import LoopPane from '../components/Controlpanel/LoopPane'
-import ServicePane from '../components/Controlpanel/ServicesPane'
+import LoopPane2 from '../components/Controlpanel/LoopPane2'
 
 
 const ServiceStyle = styled.div`
 position: absolute;
-width: 1100px;
-height: 552.97px;
+width: 1120px;
+height: 580px;
 left: 170px;
+right: 170px;
 top: 333px;
-border: 1px solid #BFBEBE;
+// border: 1px solid #BFBEBE;
+align-items: center;
 `
 const ControlPanel = () => {
     return (
         <ServiceStyle>
-            <ServicePane/>
-            <LoopPane/>
+            <LoopPane2/>
         </ServiceStyle>
     )
 }
