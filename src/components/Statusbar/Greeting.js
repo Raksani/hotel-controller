@@ -96,7 +96,7 @@ const Greeting = () => {
         <font color='#2270FE'>{name}</font>
       </GreetingText>
       <CurrentDate>
-        <Moment format="dddd, MMMM Do YYYY">{now}</Moment>
+        <Moment format="dddd, Do MMMM YYYY">{now}</Moment>
       </CurrentDate>
       <CurrentTime>
         <Clock/>
