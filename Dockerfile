@@ -1,11 +1,14 @@
-FROM node:alpine	
+FROM node:10	
 	
-WORKDIR /app
+WORKDIR /src
 	
-COPY package.json /app
+COPY package*.json ./ build/
 	
-RUN yarn install
+RUN npm install
+RUN npm install react-scripts -g
 	
-COPY . /app
+COPY . .
+
+EXPOSE 3000
 	
 CMD ["npm", "run", "start"]
