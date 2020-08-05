@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Moment from "react-moment";
-import "moment-timezone";
 import Clock from '../Statusbar/Clock'
 
 const GreetingContainer = styled.div`
@@ -19,9 +18,10 @@ const CurrentDate = styled.div`
 
 position: absolute;
 left: 0.17%;
-right: 84.9%;
 top: 61.45%;
 bottom: 0%;
+
+width: inherit;
 
   font-family: Exo;
   font-style: medium;

@@ -2,9 +2,7 @@ FROM node:10
 	
 WORKDIR /src
 	
-COPY package*.json ./ build/
-
-ENV PATH /app/node_modules/.bin:$PATH
+COPY package*.json ./ 
 	
 RUN npm install
 RUN npm install react-scripts -g
