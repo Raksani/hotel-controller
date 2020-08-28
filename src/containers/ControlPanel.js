@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import LoopPane2 from '../components/Controlpanel/LoopPane2'
+import LoopPane from '../components/Controlpanel/LoopPane'
 
 
 const ServiceStyle = styled.div`
@@ -16,8 +16,9 @@ align-items: center;
 const ControlPanel = () => {
     return (
         <ServiceStyle>
-            <LoopPane2/>
+            <LoopPane/>
         </ServiceStyle>
+        
     )
 }
 

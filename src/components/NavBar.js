@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 const Bar = styled.div`
 
 position: fixed;
@@ -29,6 +28,7 @@ letter-spacing: 0.15em;
 
 color: #FDFFFC;
 `
+
 const NavBar = () => {
     return (
         <Bar>

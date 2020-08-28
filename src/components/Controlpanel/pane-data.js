@@ -21,7 +21,7 @@ export default [
     {
         title: 'Concierge',
         icon: '',
-        detail: 'Our staffs are always here to help with special needs, so feel free to make a call',
+        detail: 'Our staffs are here to help with special needs, so feel free to make a call',
         id: 'concierge-style'
     },
     {

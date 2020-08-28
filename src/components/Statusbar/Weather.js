@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 const WeatherContainer = styled.div`
 position: absolute;
-width: 215px;
+width: 235px;
 height: 121px;
-left: 700px;
+left: 680px;
 right: 277px;
 top: 12px;
 bottom: 33px;
@@ -14,7 +14,7 @@ bottom: 33px;
 
 const WeatherText = styled.div`
 position: absolute;
-left: 24.19%;
+left: 28%;
 right: 33.49%;
 top: 2.48%;
 bottom: 75.21%;
@@ -31,32 +31,31 @@ letter-spacing: 0.1em;
 color: #242331;
 
 `
-const WeatherValue = styled.div`
-position: absolute;
-left: 46.98%;
-right: 8.84%;
-top: 47.93%;
-bottom: 8.27%;
 
-font-family: Exo;
-font-style: normal;
-font-weight: normal;
-font-size: 40px;
-line-height: 53px;
-/* identical to box height */
-display: flex;
-align-items: center;
-
-color: #636169;
-
-`
 const WeatherIcon = styled.div`
 position: absolute;
 left: 0%;
 right: 63.28%;
-top: 39.23%;
+top: 19.23%;
 bottom: 4.74%;
 
+`
+
+const WeatherStyle = styled.div`
+
+position: absolute;
+  left: 46.98%;
+  top: 47.93%;
+  bottom: 8.27%;
+  font-family: Exo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 53px;
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+  color: #636169;
 `
 const Line = styled.div`
 
@@ -67,13 +66,31 @@ top: 0%;
 bottom: 100%;
 
 `
+class Weather extends React.Component {
+    state = {
+        loading: true,
+        temp: null,
+        icon: null,
+        error: null
+      };
+    
+    async componentDidMount() {
+        const api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=13.7262&lon=100.5478&appid=553b6cd0556141286c8209088833902a`);
+        const data = await api_call.json();
+        this.setState({ icon: data.current.weather.[0].icon, error: ""});
+        const url = "http://api.airvisual.com/v2/nearest_city?lat=13.7262&lon=100.5478&key=fd4c1aaf-3253-4323-84d6-944d4970a631";
+        const response = await fetch(url);
+        const result = await response.json();
+        const aqiData = result.data.current;
+        this.setState({ temp: aqiData.weather.tp, loading: false });
+  }
 
-const Weather = () => {
-    let weatherValue = '32'
+render() {
+     
     return (
         <WeatherContainer>
             <WeatherText>Weather</WeatherText>
-            <WeatherIcon>
+            {/* <WeatherIcon>
             <svg width="79" height="69" viewBox="0 0 79 69" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.17329 58.0299C0.872733 58.0299 0.572173 57.9152 0.343289 57.687C-0.115081 57.2299 -0.115081 56.4888 0.343289 56.0318L21.0398 35.3961C21.4982 34.9391 22.2414 34.9391 22.6998 35.3961C23.1582 35.8531 23.1582 36.5942 22.6998 37.0506L2.0027 57.687C1.77381 57.9152 1.47325 58.0299 1.17329 58.0299Z" fill="#A0ECFF"/>
             <path d="M3.70974 50.3494C3.40979 50.3494 3.10924 50.2353 2.88036 50.0071C2.42139 49.5501 2.42139 48.809 2.88036 48.352L5.52573 45.7137C5.98409 45.2573 6.72735 45.2573 7.18571 45.7137C7.64407 46.1707 7.64407 46.9118 7.18571 47.3688L4.53974 50.0071C4.31086 50.2353 4.0103 50.3494 3.70974 50.3494Z" fill="#A0ECFF"/>
@@ -94,8 +111,11 @@ const Weather = () => {
             <path d="M64.6155 54.4392C64.6137 54.4392 64.6119 54.4392 64.6101 54.4392H64.5938C63.9457 54.4362 63.4223 53.9095 63.4253 53.2633C63.4283 52.6189 63.9536 52.0988 64.5993 52.0988H64.6047H64.6209C65.2691 52.1018 65.7925 52.6279 65.7895 53.2741C65.7859 53.9185 65.2612 54.4392 64.6155 54.4392Z" fill="#A0ECFF"/>
             <path d="M6.04948 65.1075H6.03321C5.38503 65.1075 4.85913 64.5832 4.85913 63.937C4.85913 63.2908 5.38503 62.7671 6.03321 62.7671H6.04948C6.69767 62.7671 7.22296 63.2908 7.22296 63.937C7.22296 64.5838 6.69767 65.1075 6.04948 65.1075Z" fill="#A0ECFF"/>
             </svg>
+            </WeatherIcon> */}
+            <WeatherIcon>
+                <img width="120" height="120" src ={`http://openweathermap.org/img/wn/${this.state.icon}@2x.png`} alt="WeatherIcon"/>
             </WeatherIcon>
-            <WeatherValue>{weatherValue} °C</WeatherValue>
+            <WeatherStyle>{this.state.temp} °C</WeatherStyle>
             <Line>
                 <svg width="2" height="122" viewBox="0 0 2 122" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line x1="0.999512" x2="0.999512" y2="121.004" stroke="#BFBEBE"/>
@@ -105,4 +125,10 @@ const Weather = () => {
     )
 }
 
+}
+
 export default Weather
+
+
+
+  

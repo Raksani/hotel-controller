@@ -23,7 +23,7 @@ const StatusBar = () => {
             <Temperature/>
             <Humidity/>
             <Weather/>
-            <Aqi></Aqi>
+            <Aqi/>
         </StatusContainer>
     )
 }
