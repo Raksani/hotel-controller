@@ -14,7 +14,6 @@ export default class Stepper extends React.Component {
 
   handleValueChange = (newValue) => {
     const {
-      props: { id, onChange },
       state: { curValue },
     } = this;
 
@@ -53,7 +52,7 @@ export default class Stepper extends React.Component {
             {...{
               className: "button",
               onClick: () => {
-                this.handleValueChange(curValue - 0.5);
+                this.handleValueChange(curValue - 1);
               },
               title: "-1",
             }}
@@ -71,7 +70,7 @@ export default class Stepper extends React.Component {
             {...{
               className: "button",
               onClick: () => {
-                this.handleValueChange(curValue + 0.5);
+                this.handleValueChange(curValue + 1);
               },
               title: "+1",
             }}

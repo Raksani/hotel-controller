@@ -6,16 +6,15 @@ import styled from "styled-components";
 
 const AppStyle = styled.div`
 align: center;
-
 `
 const App = () => {
   return (
     <AppStyle>
       <StatusBar />
       <ControlPanel />
-      <NavBar/>
+      <NavBar />
     </AppStyle>
-    
+
   )
 }
 

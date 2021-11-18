@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-
-const AqiValueStyle = styled.div`
-position: absolute;
+const AqiValueStyle = styled.div `
+  position: absolute;
   left: 36.59%;
   right: 36.99%;
   top: 50.93%;
@@ -19,12 +18,10 @@ position: absolute;
   align-items: center;
 
   color: #636169;
-
-
 `
 
-const AqiStatusStyle = styled.div`
-position: absolute;
+const AqiStatusStyle = styled.div `
+  position: absolute;
   left: 69.11%;
   top: 66.67%;
   bottom: 13.89%;
@@ -44,29 +41,56 @@ export default class PollutionValue extends React.Component {
   state = {
     loading: true,
     status: null,
-    pm: null,
+    pm25: null,
     color: null,
   };
 
   async componentDidMount() {
-    const url = "http://api.airvisual.com/v2/nearest_city?lat=13.7262&lon=100.5478&key=fd4c1aaf-3253-4323-84d6-944d4970a631";
-    const response = await fetch(url);
-    const result = await response.json();
-    const aqiData = result.data.current;
-    this.setState({ pm: aqiData.pollution.aqius, loading: false });
-    this.checkAqiStatus()
+    try {
+      setInterval(async () => {
+        /* set temp */
+        const psql_call = await fetch('http://localhost:3001');
+        const aqiData = await psql_call.json();
+        const pm25Value = Math.round(0.0 + aqiData[0].pm25);
+        this.setState({
+          pm: pm25Value,
+          loading: false
+        });
+        this.checkAqiStatus()
+      }, 1000)
+    } catch (e) {
+      console.log(e)
+    }
   }
 
-  checkAqiStatus(){
-    let aqival = this.state.pm 
-    if(aqival >= 0 && aqival <51 ) this.setState({status: 'Good', color: '#5ac251'});
-    else if(aqival >=51 && aqival <101) this.setState({status: 'Moderate', color: '#fab03c'});
-    else if(aqival >=101 && aqival <151) this.setState({status: 'Unhealthy for Sensitive Groups', color: '#f78800'});
-    else if(aqival >=151 && aqival <201) this.setState({status: 'Unhealthy', color: '#e40101'});
-    else if(aqival >=201 && aqival <301) this.setState({status: 'Very unhealthy', color: '#b1277d'});
-    else if (aqival > 301) this.setState({status: 'Hazardous', color: '#933a40'});
+  checkAqiStatus() {
+    let aqival = this.state.pm25
+    return (aqival >= 0 && aqival < 51) ? this.setState({
+        status: 'Good',
+        color: '#5ac251'
+      }) :
+      (aqival >= 51 && aqival < 101) ? this.setState({
+        status: 'Moderate',
+        color: '#fab03c'
+      }) :
+      (aqival >= 101 && aqival < 151) ? this.setState({
+        status: 'Unhealthy for Sensitive Groups',
+        color: '#f78800'
+      }) :
+      (aqival >= 201 && aqival < 301) ? this.setState({
+        status: 'Unhealthy',
+        color: '#e40101'
+      }) :
+      (aqival > 301) ? this.setState({
+        status: 'Very unhealthy',
+        color: '#b1277d'
+      }) :
+      this.setState({
+        status: 'Very unhealthy',
+        color: '#b1277d'
+      })
   }
-  
+
   render() {
     return (
       <div>

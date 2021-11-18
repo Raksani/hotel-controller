@@ -7,7 +7,7 @@ import '../Styles/LoopPane.css';
 import services from "./pane-data";
 import LightSwitch from "./LightSwitch"
 import Stepper from './Stepper'
-import ConciergeCall from "./ConciergeCall";
+// import ConciergeCall from "./ConciergeCall";
 /**
  * Our React component where we display data
  * -----------------------------
@@ -26,7 +26,8 @@ function LoopPane() {
               <div className="title" id={service.id}>{service.title}</div>
               <div className="detail" id={service.id}>{service.detail}</div>
               <div className="switch">
-                { service.id === 'light-style' ? <LightSwitch/> : service.id === 'air-style' ? <Stepper/> : service.id === 'concierge-style' ? <ConciergeCall/> : undefined}
+                {/* { service.id === 'light-style' ? <LightSwitch/> : service.id === 'air-style' ? <Stepper/> : service.id === 'concierge-style' ? <ConciergeCall/> : undefined} */}
+                { service.id === 'light-style' ? <LightSwitch/> : service.id === 'air-style' ? <Stepper/> : undefined}
               </div>
           </div>
         </div>

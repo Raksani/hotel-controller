@@ -33,7 +33,7 @@ const NavBar = () => {
     return (
         <Bar>
             <Text>
-                Nova Hotel Resort & Spa
+                VMova Hotel Resort & Spa
             </Text>
         </Bar>
     )
